@@ -1,0 +1,113 @@
+{
+  "model": "Vulcan OmniPro 220",
+  "itemNumber": "57812",
+  "upc": "193175422590",
+  "manufacturer": "Harbor Freight Tools",
+  "standard": "ANSI/IEC Std. 60974-1",
+  "protectionRating": "IP21S",
+  "mig": {
+    "powerInput": [
+      { "voltage": 120, "unit": "VAC", "frequency": "60 Hz" },
+      { "voltage": 240, "unit": "VAC", "frequency": "60 Hz" }
+    ],
+    "currentInputAtOutput": [
+      { "inputVoltage": 120, "inputAmps": 20.8, "outputAmps": 100 },
+      { "inputVoltage": 240, "inputAmps": 25.5, "outputAmps": 200 }
+    ],
+    "weldingCurrentRange": [
+      { "inputVoltage": 120, "minAmps": 30, "maxAmps": 140 },
+      { "inputVoltage": 240, "minAmps": 30, "maxAmps": 220 }
+    ],
+    "ratedDutyCycles": {
+      "120V": [
+        { "dutyCyclePercent": 40, "amps": 100, "outputVoltage": 19.0 },
+        { "dutyCyclePercent": 60, "amps": 85, "outputVoltage": 18.25 },
+        { "dutyCyclePercent": 100, "amps": 75, "outputVoltage": 17.75 }
+      ],
+      "240V": [
+        { "dutyCyclePercent": 25, "amps": 200, "outputVoltage": 24.0 },
+        { "dutyCyclePercent": 60, "amps": 130, "outputVoltage": 20.5 },
+        { "dutyCyclePercent": 100, "amps": 115, "outputVoltage": 19.75 }
+      ]
+    },
+    "maxOCV": { "value": 86, "unit": "VDC" },
+    "weldableMaterials": ["Mild Steel", "Stainless Steel", "Aluminum (with optional Spool Gun)"],
+    "wireCapacity": {
+      "solidCore": ["0.025\"", "0.030\"", "0.035\""],
+      "fluxCored": ["0.030\"", "0.035\"", "0.045\""]
+    },
+    "wireSpeed": { "min": 50, "max": 500, "unit": "IPM" },
+    "wireSpoolCapacity": { "maxWeight": 12, "unit": "lb" },
+    "outputRange": {
+      "120V": { "min": "30A/15.5V", "max": "140A/21V" },
+      "240V": { "min": "30A/15.5V", "max": "220A/25V" }
+    },
+    "source": { "docId": "owners_manual", "pages": [7, 14], "section": "Specifications" }
+  },
+  "tig": {
+    "powerInput": [
+      { "voltage": 120, "unit": "VAC", "frequency": "60 Hz" },
+      { "voltage": 240, "unit": "VAC", "frequency": "60 Hz" }
+    ],
+    "currentInputAtOutput": [
+      { "inputVoltage": 120, "inputAmps": 20.6, "outputAmps": 125 },
+      { "inputVoltage": 240, "inputAmps": 15.6, "outputAmps": 175 }
+    ],
+    "weldingCurrentRange": [
+      { "inputVoltage": 120, "minAmps": 10, "maxAmps": 125 },
+      { "inputVoltage": 240, "minAmps": 10, "maxAmps": 175 }
+    ],
+    "ratedDutyCycles": {
+      "120V": [
+        { "dutyCyclePercent": 40, "amps": 125, "outputVoltage": 15.0 },
+        { "dutyCyclePercent": 60, "amps": 105, "outputVoltage": 14.2 },
+        { "dutyCyclePercent": 100, "amps": 90, "outputVoltage": 13.6 }
+      ],
+      "240V": [
+        { "dutyCyclePercent": 30, "amps": 175, "outputVoltage": 17.0 },
+        { "dutyCyclePercent": 60, "amps": 125, "outputVoltage": 15.0 },
+        { "dutyCyclePercent": 100, "amps": 105, "outputVoltage": 14.2 }
+      ]
+    },
+    "maxOCV": { "value": 86, "unit": "VDC" },
+    "weldableMaterials": ["Mild Steel", "Stainless Steel", "Chrome Moly"],
+    "outputRange": {
+      "120V": { "min": "10A/10.4V", "max": "125A/15V" },
+      "240V": { "min": "10A/10.4V", "max": "175A/17V" }
+    },
+    "source": { "docId": "owners_manual", "pages": [7, 14], "section": "Specifications" }
+  },
+  "stick": {
+    "powerInput": [
+      { "voltage": 120, "unit": "VAC", "frequency": "60 Hz" },
+      { "voltage": 240, "unit": "VAC", "frequency": "60 Hz" }
+    ],
+    "currentInputAtOutput": [
+      { "inputVoltage": 120, "inputAmps": 19.5, "outputAmps": 80 },
+      { "inputVoltage": 240, "inputAmps": 23.7, "outputAmps": 175 }
+    ],
+    "weldingCurrentRange": [
+      { "inputVoltage": 120, "minAmps": 10, "maxAmps": 80 },
+      { "inputVoltage": 240, "minAmps": 10, "maxAmps": 175 }
+    ],
+    "ratedDutyCycles": {
+      "120V": [
+        { "dutyCyclePercent": 40, "amps": 80, "outputVoltage": 23.2 },
+        { "dutyCyclePercent": 60, "amps": 70, "outputVoltage": 22.8 },
+        { "dutyCyclePercent": 100, "amps": 60, "outputVoltage": 22.4 }
+      ],
+      "240V": [
+        { "dutyCyclePercent": 25, "amps": 175, "outputVoltage": 27.0 },
+        { "dutyCyclePercent": 60, "amps": 115, "outputVoltage": 24.6 },
+        { "dutyCyclePercent": 100, "amps": 100, "outputVoltage": 24.0 }
+      ]
+    },
+    "maxOCV": { "value": 86, "unit": "VDC" },
+    "weldableMaterials": ["Mild Steel", "Stainless Steel"],
+    "outputRange": {
+      "120V": { "min": "10A/20.4V", "max": "80A/23.2V" },
+      "240V": { "min": "10A/20.4V", "max": "175A/27V" }
+    },
+    "source": { "docId": "owners_manual", "pages": [7, 14], "section": "Specifications" }
+  }
+}

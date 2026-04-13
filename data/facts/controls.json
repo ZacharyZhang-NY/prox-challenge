@@ -1,0 +1,140 @@
+[
+  {
+    "location": "front_panel",
+    "name": "Power Switch",
+    "description": "Main power on/off switch for the welder.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "LCD Display",
+    "description": "Digital display showing process selection, settings, warnings, and welding parameters.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Left Knob",
+    "description": "Used to set wire diameter/rod diameter/electrode diameter (depending on process) and adjust Wire Feed Speed or output amperage.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Right Knob",
+    "description": "Used to set material thickness, adjust voltage, and toggle TIG torch/electrode holder on/off.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Control Knob (Main)",
+    "description": "Main navigation and selection knob. Turn to scroll through processes and settings, press to select. Also used to adjust optional settings (Run-In WFS, Inductance, Spot Timer, Hot Start, Arc Force, Save/Recall).",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Home Button",
+    "description": "Returns to the home/process selection screen on the LCD Display.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Back Button",
+    "description": "Returns to the previous screen on the LCD Display.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Wire Feed Power Cable",
+    "description": "Power cable socket for the wire feed system. Connects to Positive (+) socket for MIG (DCEP) or Negative (-) socket for Flux-Cored (DCEN).",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Spool Gun Gas Outlet",
+    "description": "Gas outlet for connecting an optional Spool Gun's gas hose.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "MIG Gun / Spool Gun Cable Socket",
+    "description": "Socket for connecting the MIG Gun or optional Spool Gun cable connector.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Negative Socket",
+    "description": "Negative (-) polarity output socket. Cable assignment varies by process (Ground Clamp for MIG/DCEP and Stick/DCEP; Wire Feed Power Cable for Flux-Cored/DCEN; TIG Torch Cable for TIG/DCEN).",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Positive Socket",
+    "description": "Positive (+) polarity output socket. Cable assignment varies by process (Wire Feed Power Cable for MIG/DCEP; Ground Clamp for Flux-Cored/DCEN and TIG/DCEN; Electrode Holder Cable for Stick/DCEP).",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "front_panel",
+    "name": "Storage Compartment",
+    "description": "Built-in storage compartment on the front panel of the welder.",
+    "source": { "docId": "owners_manual", "page": 8, "section": "Controls - Front Panel Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Cold Wire Feed Switch",
+    "description": "Press and hold to feed wire through the MIG Gun without energizing the welder. Used during initial wire setup.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Idler Arm",
+    "description": "Spring-loaded arm that provides pressure on the wire against the Feed Roller. Moves up when Feed Tensioner is released.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Wire Feed Mechanism",
+    "description": "The drive mechanism that feeds welding wire from the spool through the liner and out the MIG Gun. Includes socket for Gun Cable Connector.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Wire Spool",
+    "description": "Holds the welding wire. Supports up to 12 lb spools. Must unwind clockwise.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Spool Knob",
+    "description": "Screws into the Spool Adapter for 10-12 lb spools to secure them in place.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Feed Tensioner",
+    "description": "Adjustable tensioner that controls pressure on the wire feed. Recommended tension: 3-5 for solid wire, 2-3 for flux-cored wire. Turn clockwise to increase tension.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Wire Inlet Liner",
+    "description": "Guides the welding wire from the spool into the feed mechanism.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Feed Roller Knob",
+    "description": "Secures the Feed Roller in place. Unscrew to access and flip/replace the Feed Roller for different wire types and sizes.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Wire Feed Control Socket",
+    "description": "Socket inside the welder for connecting the Wire Feed Control Cable from the MIG Gun or Spool Gun.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  },
+  {
+    "location": "interior",
+    "name": "Foot Pedal Socket",
+    "description": "Socket inside the welder for connecting an optional Foot Pedal cable for TIG welding amperage control.",
+    "source": { "docId": "owners_manual", "page": 9, "section": "Controls - Interior Controls" }
+  }
+]

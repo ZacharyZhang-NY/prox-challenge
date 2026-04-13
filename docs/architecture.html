@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prox — System Architecture</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg: #f8fafc;
+      --c-canvas: #ffffff;
+      --c-border: #cbd5e1;
+      --c-text-main: #0f172a;
+      --c-text-sub: #64748b;
+      --c-accent: #c2410c;
+      --font-ui: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--c-bg);
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .diagram-container { max-width: 1100px; margin: 0 auto; }
+
+    .diagram-canvas {
+      background: var(--c-canvas);
+      border: 1px solid var(--c-border);
+      padding: 32px;
+    }
+
+    .diagram-header {
+      border-bottom: 1px solid var(--c-border);
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .diagram-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--c-text-main);
+    }
+
+    .diagram-subtitle {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--c-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .layer {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .layer-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--c-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 0;
+      border-bottom: 1px dashed var(--c-border);
+      margin-bottom: 8px;
+    }
+
+    .component {
+      border: 1px solid var(--c-border);
+      padding: 14px 16px;
+      background: var(--c-canvas);
+    }
+
+    .component-name {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-text-main);
+      margin-bottom: 4px;
+    }
+
+    .component-desc {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--c-text-sub);
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 1px 6px;
+      border: 1px solid var(--c-border);
+      color: var(--c-text-sub);
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+
+    .badge-solid {
+      background: var(--c-text-main);
+      color: var(--c-canvas);
+      border-color: var(--c-text-main);
+    }
+
+    .badge-accent {
+      border-color: var(--c-accent);
+      color: var(--c-accent);
+    }
+
+    .connector-row {
+      padding: 4px 0;
+    }
+
+    .connector-row svg {
+      display: block;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .section-gap { margin-bottom: 4px; }
+
+    .flow-arrow {
+      stroke: var(--c-border);
+      stroke-width: 1.5;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+
+    .flow-arrow-accent {
+      stroke: var(--c-accent);
+      stroke-width: 1.5;
+      fill: none;
+      marker-end: url(#arrowhead-accent);
+    }
+
+    .flow-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      fill: var(--c-text-sub);
+    }
+
+    .flow-label-accent {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      fill: var(--c-accent);
+    }
+  </style>
+</head>
+<body>
+  <svg style="position:absolute;width:0;height:0">
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+      </marker>
+      <marker id="arrowhead-accent" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <path d="M0,0 L8,3 L0,6" fill="none" stroke="#c2410c" stroke-width="1"/>
+      </marker>
+    </defs>
+  </svg>
+
+  <div class="diagram-container">
+    <div class="diagram-canvas">
+      <div class="diagram-header">
+        <div>
+          <div class="diagram-title">Prox — System Architecture</div>
+          <div class="diagram-subtitle">AI Knowledge Agent for Vulcan OmniPro 220</div>
+        </div>
+        <div class="diagram-subtitle">Next.js 15 / React 19 / Claude API</div>
+      </div>
+
+      <!-- LAYER 1: CLIENT -->
+      <div class="layer-label">Client Layer — Browser</div>
+      <div class="layer grid-4 section-gap">
+        <div class="component">
+          <div class="component-name">ChatShell</div>
+          <div class="component-desc">Session management, SSE stream reader, message state</div>
+          <span class="badge">React 19</span>
+        </div>
+        <div class="component">
+          <div class="component-name">ChatMessage</div>
+          <div class="component-desc">Markdown rendering, status indicators, streaming text</div>
+          <span class="badge">react-markdown</span>
+        </div>
+        <div class="component">
+          <div class="component-name">Artifact Renderers</div>
+          <div class="component-desc">Polarity SVG, duty cycle, troubleshooting flow, settings card, manual image</div>
+          <span class="badge">5 types</span>
+        </div>
+        <div class="component">
+          <div class="component-name">UploadInput</div>
+          <div class="component-desc">Image capture, base64 encoding, media type detection</div>
+          <span class="badge">multimodal</span>
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="connector-row">
+        <svg height="32" viewBox="0 0 1000 32" preserveAspectRatio="xMidYMid meet">
+          <line class="flow-arrow" x1="500" y1="4" x2="500" y2="24"/>
+          <text class="flow-label" x="516" y="18">SSE: event/delta, event/status, event/done</text>
+        </svg>
+      </div>
+
+      <!-- LAYER 2: API -->
+      <div class="layer-label">Server Layer — Next.js API Routes</div>
+      <div class="layer grid-3 section-gap">
+        <div class="component">
+          <div class="component-name">POST /api/chat</div>
+          <div class="component-desc">SSE streaming endpoint. Validates request via Zod, pipes orchestrator callbacks to ReadableStream.</div>
+          <span class="badge-solid badge">SSE</span>
+          <span class="badge">maxDuration: 120s</span>
+        </div>
+        <div class="component">
+          <div class="component-name">/api/sessions/*</div>
+          <div class="component-desc">CRUD endpoints: list, create, get, update, delete. Persists to sql.js SQLite.</div>
+          <span class="badge">sql.js WASM</span>
+        </div>
+        <div class="component">
+          <div class="component-name">/api/assets/[id]</div>
+          <div class="component-desc">Serves manual page PNGs by asset ID. 24h cache headers.</div>
+          <span class="badge">static files</span>
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="connector-row">
+        <svg height="32" viewBox="0 0 1000 32" preserveAspectRatio="xMidYMid meet">
+          <line class="flow-arrow-accent" x1="500" y1="4" x2="500" y2="24"/>
+          <text class="flow-label-accent" x="516" y="18">Orchestrator callbacks: onStatus → onDelta → onDone</text>
+        </svg>
+      </div>
+
+      <!-- LAYER 3: ORCHESTRATOR -->
+      <div class="layer-label">Agent Layer — Orchestrator</div>
+      <div class="layer grid-2 section-gap">
+        <div class="component" style="grid-column: span 2;">
+          <div class="component-name">runOrchestratorStream()</div>
+          <div class="component-desc">
+            Agentic tool loop (max 3 iterations). Each turn: send messages → Claude returns tool_use blocks → execute tools locally → feed results back. When stop_reason = "end_turn", stream final text to client.
+          </div>
+          <span class="badge-solid badge">Anthropic SDK</span>
+          <span class="badge badge-accent">tool loop</span>
+          <span class="badge">stream final response</span>
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="connector-row">
+        <svg height="40" viewBox="0 0 1000 40" preserveAspectRatio="xMidYMid meet">
+          <line class="flow-arrow" x1="167" y1="8" x2="167" y2="32"/>
+          <line class="flow-arrow" x1="500" y1="8" x2="500" y2="32"/>
+          <line class="flow-arrow" x1="833" y1="8" x2="833" y2="32"/>
+          <text class="flow-label" x="100" y="24">tool_use</text>
+          <text class="flow-label" x="433" y="24">tool_use</text>
+          <text class="flow-label" x="766" y="24">tool_use</text>
+        </svg>
+      </div>
+
+      <!-- LAYER 4: TOOLS -->
+      <div class="layer-label">Tool Layer — Local Execution (no external calls)</div>
+      <div class="layer grid-3 section-gap">
+        <div class="component">
+          <div class="component-name">lookup_fact</div>
+          <div class="component-desc">Queries structured JSON fact collections. Filter by process, voltage, category. Returns typed records with page citations.</div>
+          <span class="badge">6 collections</span>
+        </div>
+        <div class="component">
+          <div class="component-name">search_manual</div>
+          <div class="component-desc">Full-text search over document chunks using MiniSearch. Fuzzy matching, prefix search, field boosting (section 2x, keywords 1.5x).</div>
+          <span class="badge">MiniSearch</span>
+        </div>
+        <div class="component">
+          <div class="component-name">get_visual_asset</div>
+          <div class="component-desc">Finds manual page images by query, tags, page number. Returns asset IDs rendered as interactive image cards on the frontend.</div>
+          <span class="badge">48 pages indexed</span>
+        </div>
+      </div>
+
+      <!-- CONNECTOR -->
+      <div class="connector-row">
+        <svg height="32" viewBox="0 0 1000 32" preserveAspectRatio="xMidYMid meet">
+          <line class="flow-arrow" x1="167" y1="4" x2="167" y2="24"/>
+          <line class="flow-arrow" x1="500" y1="4" x2="500" y2="24"/>
+          <line class="flow-arrow" x1="833" y1="4" x2="833" y2="24"/>
+        </svg>
+      </div>
+
+      <!-- LAYER 5: DATA -->
+      <div class="layer-label">Data Layer — Static JSON + File Storage</div>
+      <div class="layer grid-4">
+        <div class="component">
+          <div class="component-name">data/facts/</div>
+          <div class="component-desc">polarity_matrix.json, duty_cycle.json, troubleshooting.json, controls.json, process_setup.json, specs.json</div>
+          <span class="badge">structured</span>
+        </div>
+        <div class="component">
+          <div class="component-name">data/chunks/</div>
+          <div class="component-desc">owners_manual.json (48 pages), quick_start.json — page-level text chunks with section headers and keywords</div>
+          <span class="badge">searchable</span>
+        </div>
+        <div class="component">
+          <div class="component-name">public/manual-pages/</div>
+          <div class="component-desc">51 PNG page scans: owners_manual/ (48), quick_start/ (2), selection_chart/ (1)</div>
+          <span class="badge">visual</span>
+        </div>
+        <div class="component">
+          <div class="component-name">data/sessions.db</div>
+          <div class="component-desc">sql.js WASM SQLite. Auto-created on first run. Stores chat sessions as JSON blobs. Zero config.</div>
+          <span class="badge">auto-init</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Outer square frame — blueprint border -->
+  <rect x="32" y="32" width="448" height="448" stroke="#0f172a" stroke-width="16" fill="none"/>
+
+  <!-- Stylized P — geometric, industrial -->
+  <path d="M152 128 L152 384" stroke="#0f172a" stroke-width="40" stroke-linecap="square"/>
+  <path d="M152 128 L280 128 Q360 128 360 208 Q360 288 280 288 L152 288"
+        stroke="#0f172a" stroke-width="40" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+
+  <!-- Crosshair / target dot — precision knowledge lookup -->
+  <circle cx="360" cy="360" r="6" fill="#0f172a"/>
+  <line x1="360" y1="328" x2="360" y2="344" stroke="#0f172a" stroke-width="8" stroke-linecap="square"/>
+  <line x1="360" y1="376" x2="360" y2="392" stroke="#0f172a" stroke-width="8" stroke-linecap="square"/>
+  <line x1="328" y1="360" x2="344" y2="360" stroke="#0f172a" stroke-width="8" stroke-linecap="square"/>
+  <line x1="376" y1="360" x2="392" y2="360" stroke="#0f172a" stroke-width="8" stroke-linecap="square"/>
+  <circle cx="360" cy="360" r="24" stroke="#0f172a" stroke-width="8" fill="none"/>
+</svg>

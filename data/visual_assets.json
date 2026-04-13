@@ -1,0 +1,71 @@
+{
+  "owners_manual": {
+    "basePath": "public/manual-pages/owners_manual",
+    "totalPages": 48,
+    "pages": {
+      "1": { "file": "page_01.png", "title": "Cover Page", "tags": ["cover", "model", "item_number", "57812"] },
+      "2": { "file": "page_02.png", "title": "Table of Contents & Safety Warnings", "tags": ["safety", "table_of_contents", "warning_symbols"] },
+      "3": { "file": "page_03.png", "title": "Fume and Gas Safety / Arc Ray Safety", "tags": ["safety", "fumes", "ventilation", "arc_ray", "ppe"] },
+      "4": { "file": "page_04.png", "title": "Electrical Safety / Fire Safety", "tags": ["safety", "electrical", "fire", "grounding"] },
+      "5": { "file": "page_05.png", "title": "Welder Use and Care / Maintenance / Cylinder Safety", "tags": ["safety", "maintenance", "gas_cylinder", "care"] },
+      "6": { "file": "page_06.png", "title": "Symbology / Grounding / Extension Cords", "tags": ["symbols", "grounding", "extension_cord", "replacement_cord"] },
+      "7": { "file": "page_07.png", "title": "Specifications", "tags": ["specifications", "specs", "mig", "tig", "stick", "power_input", "current_range", "duty_cycle", "ocv", "wire_capacity", "wire_speed"] },
+      "8": { "file": "page_08.png", "title": "Front Panel Controls", "tags": ["controls", "front_panel", "lcd_display", "knobs", "sockets", "power_switch"] },
+      "9": { "file": "page_09.png", "title": "Interior Controls", "tags": ["controls", "interior", "wire_feed", "spool", "tensioner", "idler_arm", "foot_pedal_socket"] },
+      "10": { "file": "page_10.png", "title": "Wire Spool Installation (1-2 lb)", "tags": ["setup", "wire_spool", "installation", "1_2_lb", "mig", "flux_cored"] },
+      "11": { "file": "page_11.png", "title": "Wire Spool Installation (10-12 lb) / Feed Tensioner", "tags": ["setup", "wire_spool", "installation", "10_12_lb", "tensioner", "idler_arm"] },
+      "12": { "file": "page_12.png", "title": "Feed Roller Instructions", "tags": ["setup", "feed_roller", "solid_core", "flux_cored", "v_groove", "knurled_groove", "wire_size"] },
+      "13": { "file": "page_13.png", "title": "Gun Cable Connector / DCEN Flux-Cored Polarity Setup", "tags": ["setup", "cable_connector", "dcen", "flux_cored", "polarity", "gasless"] },
+      "14": { "file": "page_14.png", "title": "DCEP MIG Polarity Setup / Spec Plate / Gas Setup", "tags": ["setup", "dcep", "mig", "polarity", "spec_plate", "duty_cycle", "gas_setup", "regulator", "shielding_gas"] },
+      "15": { "file": "page_15.png", "title": "Wire Threading / Feed Guide", "tags": ["setup", "wire_threading", "feed_guide", "liner", "tensioner", "nozzle", "contact_tip"] },
+      "16": { "file": "page_16.png", "title": "Power Cord Connection / Cold Wire Feed", "tags": ["setup", "power_cord", "cold_wire_feed", "120v", "240v"] },
+      "17": { "file": "page_17.png", "title": "Wire Tension Check / Contact Tip / Spool Gun Setup", "tags": ["setup", "tension_check", "contact_tip", "nozzle", "stickout", "spool_gun"] },
+      "18": { "file": "page_18.png", "title": "Basic Wire Welding Introduction", "tags": ["welding", "mig", "flux_cored", "introduction", "practice"] },
+      "19": { "file": "page_19.png", "title": "Setting Up the Weld / Duty Cycle (MIG)", "tags": ["welding", "setup", "ground_clamp", "duty_cycle", "mig", "thermal_protection"] },
+      "20": { "file": "page_20.png", "title": "MIG/Flux Settings via LCD", "tags": ["settings", "lcd", "process_selection", "wire_diameter", "material_thickness", "voltage", "wire_feed_speed"] },
+      "21": { "file": "page_21.png", "title": "Optional MIG Settings / Gas Shielded Instructions", "tags": ["settings", "run_in_wfs", "inductance", "spot_timer", "save", "recall", "gas_safety"] },
+      "22": { "file": "page_22.png", "title": "Basic Wire Welding Technique", "tags": ["technique", "stringer_bead", "weave_bead", "push_angle", "drag_angle", "ctwd", "mig", "flux_cored"] },
+      "23": { "file": "page_23.png", "title": "Thermal Protection / Post-Welding / Duty Cycle Reminder", "tags": ["thermal_protection", "duty_cycle", "post_welding", "mig", "cool_down"] },
+      "24": { "file": "page_24.png", "title": "TIG Setup - Cable Diagram", "tags": ["setup", "tig", "cable_diagram", "polarity", "dcen", "foot_pedal", "shielding_gas"] },
+      "25": { "file": "page_25.png", "title": "TIG Shielding Gas Connection / Power Cord", "tags": ["setup", "tig", "shielding_gas", "argon", "regulator", "power_cord"] },
+      "26": { "file": "page_26.png", "title": "Sharpen Tungsten Electrode / Assemble TIG Torch", "tags": ["setup", "tig", "tungsten", "electrode", "grinding", "torch_assembly", "collet", "ceramic_nozzle"] },
+      "27": { "file": "page_27.png", "title": "Stick Setup - Cable Diagram", "tags": ["setup", "stick", "cable_diagram", "polarity", "dcep", "electrode_holder"] },
+      "28": { "file": "page_28.png", "title": "Basic TIG/Stick Welding Introduction", "tags": ["welding", "tig", "stick", "introduction", "practice"] },
+      "29": { "file": "page_29.png", "title": "Duty Cycle (TIG/Stick) / Setting Up the Weld", "tags": ["duty_cycle", "tig", "stick", "thermal_protection", "ground_clamp", "weld_setup"] },
+      "30": { "file": "page_30.png", "title": "TIG Welding Settings / Procedure", "tags": ["welding", "tig", "settings", "lcd", "process_selection", "rod_diameter", "amperage"] },
+      "31": { "file": "page_31.png", "title": "TIG Welding Technique / Optional Settings", "tags": ["welding", "tig", "technique", "foot_pedal", "arc", "weld_puddle", "save", "recall"] },
+      "32": { "file": "page_32.png", "title": "Stick Welding Settings / Procedure", "tags": ["welding", "stick", "settings", "lcd", "electrode_type", "electrode_diameter", "amperage"] },
+      "33": { "file": "page_33.png", "title": "Stick Welding Technique / Optional Settings", "tags": ["welding", "stick", "technique", "arc_ignition", "hot_start", "arc_force", "save", "recall"] },
+      "34": { "file": "page_34.png", "title": "Welding Tips - Strike Test / Cleaning", "tags": ["welding_tips", "strike_test", "weld_quality", "cleaning", "chipping_hammer", "wire_brush"] },
+      "35": { "file": "page_35.png", "title": "Wire Weld Diagnosis - Heat Control / Penetration", "tags": ["welding_tips", "weld_diagnosis", "wire", "penetration", "burn_through", "voltage", "wire_feed_speed", "ctwd"] },
+      "36": { "file": "page_36.png", "title": "Wire Weld Penetration / Adhesion / Bend / Slag", "tags": ["welding_tips", "weld_diagnosis", "wire", "penetration", "adhesion", "bend", "slag"] },
+      "37": { "file": "page_37.png", "title": "Wire Weld - Burn-Through / Crooked Bead / Porosity / Spatter", "tags": ["welding_tips", "weld_diagnosis", "wire", "burn_through", "porosity", "spatter", "crooked_bead"] },
+      "38": { "file": "page_38.png", "title": "Stick Weld Diagnosis - Heat Control / Penetration", "tags": ["welding_tips", "weld_diagnosis", "stick", "penetration", "current", "weld_speed", "arc_length"] },
+      "39": { "file": "page_39.png", "title": "Stick Weld Penetration / Adhesion / Bend", "tags": ["welding_tips", "weld_diagnosis", "stick", "penetration", "adhesion", "bend"] },
+      "40": { "file": "page_40.png", "title": "Stick Weld - Slag / Porosity / Crooked Bead / Spatter / Burn-Through", "tags": ["welding_tips", "weld_diagnosis", "stick", "slag", "porosity", "spatter", "crooked_bead", "burn_through"] },
+      "41": { "file": "page_41.png", "title": "Maintenance / MIG Gun Inspection / LCD Screen Cover", "tags": ["maintenance", "inspection", "mig_gun", "nozzle", "contact_tip", "cleaning", "lcd_screen_cover"] },
+      "42": { "file": "page_42.png", "title": "Troubleshooting - MIG / Flux-Cored (Part 1)", "tags": ["troubleshooting", "mig", "flux_cored", "wire_feed", "birds_nest", "wire_stops", "arc_unstable", "weak_arc"] },
+      "43": { "file": "page_43.png", "title": "Troubleshooting - MIG / Flux-Cored (Part 2)", "tags": ["troubleshooting", "mig", "flux_cored", "no_function", "lcd_dark", "no_arc", "porosity"] },
+      "44": { "file": "page_44.png", "title": "Troubleshooting - TIG / Stick", "tags": ["troubleshooting", "tig", "stick", "no_function", "lcd_dark", "weak_arc", "arc_unstable"] },
+      "45": { "file": "page_45.png", "title": "Wiring Schematic", "tags": ["wiring", "schematic", "electrical", "diagram", "igbt", "pfc", "mcu", "lcd"] },
+      "46": { "file": "page_46.png", "title": "Parts List", "tags": ["parts", "parts_list", "replacement", "components"] },
+      "47": { "file": "page_47.png", "title": "Assembly Diagram", "tags": ["parts", "assembly_diagram", "exploded_view"] },
+      "48": { "file": "page_48.png", "title": "Warranty", "tags": ["warranty", "90_day", "harbor_freight"] }
+    }
+  },
+  "quick_start": {
+    "basePath": "public/manual-pages/quick_start",
+    "totalPages": 2,
+    "pages": {
+      "1": { "file": "page_01.png", "title": "Quick Start Guide - Wire Spool Loading & Setup", "tags": ["quick_start", "setup", "wire_spool", "feed_mechanism", "mig", "contact_tip", "nozzle"] },
+      "2": { "file": "page_02.png", "title": "Quick Start Guide - Page 2", "tags": ["quick_start", "setup", "welding"] }
+    }
+  },
+  "selection_chart": {
+    "basePath": "public/manual-pages/selection_chart",
+    "totalPages": 1,
+    "pages": {
+      "1": { "file": "page_01.png", "title": "Settings / Selection Chart", "tags": ["selection_chart", "settings", "wire_size", "gas_type", "material_thickness", "amperage", "voltage", "wire_feed_speed"] }
+    }
+  }
+}

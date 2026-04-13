@@ -1,0 +1,50 @@
+[
+  {
+    "process": "MIG",
+    "wireType": "solid_core",
+    "polarity": "DCEP",
+    "polarityFull": "Direct Current Electrode Positive",
+    "positiveLead": "Wire Feed Power Cable",
+    "negativeLead": "Ground Clamp Cable",
+    "gasRequired": true,
+    "gasType": "Shielding gas (per Settings Chart - typically 75% Ar / 25% CO2 for mild steel, or C100)",
+    "notes": "Requires shielding gas. Used for mild steel, stainless steel, and aluminum (with optional Spool Gun).",
+    "source": { "docId": "owners_manual", "page": 14, "section": "MIG / Flux-Cored Wire Welding - DCEP Setup" }
+  },
+  {
+    "process": "Flux-Cored",
+    "wireType": "flux_cored",
+    "polarity": "DCEN",
+    "polarityFull": "Direct Current Electrode Negative",
+    "positiveLead": "Ground Clamp Cable",
+    "negativeLead": "Wire Feed Power Cable",
+    "gasRequired": false,
+    "gasType": null,
+    "notes": "Self-shielded, no shielding gas needed. Used for mild steel and stainless steel.",
+    "source": { "docId": "owners_manual", "page": 13, "section": "MIG / Flux-Cored Wire Welding - DCEN Setup" }
+  },
+  {
+    "process": "TIG",
+    "wireType": null,
+    "polarity": "DCEN",
+    "polarityFull": "Direct Current Electrode Negative",
+    "positiveLead": "Ground Clamp Cable",
+    "negativeLead": "TIG Torch Cable",
+    "gasRequired": true,
+    "gasType": "100% Argon",
+    "notes": "Requires 100% Argon shielding gas. Used for mild steel, stainless steel, chrome moly. SCFH 10-25.",
+    "source": { "docId": "owners_manual", "page": 24, "section": "TIG / Stick Welding - TIG Setup" }
+  },
+  {
+    "process": "Stick",
+    "wireType": null,
+    "polarity": "DCEP",
+    "polarityFull": "Direct Current Electrode Positive",
+    "positiveLead": "Electrode Holder Cable",
+    "negativeLead": "Ground Clamp Cable",
+    "gasRequired": false,
+    "gasType": null,
+    "notes": "No shielding gas required. Used for mild steel and stainless steel.",
+    "source": { "docId": "owners_manual", "page": 27, "section": "TIG / Stick Welding - Stick Setup" }
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "process": "MIG",
+    "wireType": "solid_core",
+    "cableSetup": {
+      "polarity": "DCEP",
+      "groundClamp": "Negative (-) Socket",
+      "wireFeedPowerCable": "Positive (+) Socket",
+      "instruction": "Plug Ground Clamp Cable into Negative Socket. Plug Wire Feed Power Cable into Positive Socket. Twist cables clockwise all the way to lock in place."
+    },
+    "gasSetup": {
+      "required": true,
+      "gasType": "Shielding gas per Settings Chart (typically 75/25 Ar/CO2 for mild steel)",
+      "scfhRange": "20-30",
+      "steps": [
+        "With assistance, set the gas cylinder onto a cabinet or cart near the Welder and secure with two straps to prevent tipping.",
+        "Remove the cylinder's cap. Stand to the side of the valve opening, then open the valve briefly to blow dust and dirt from the valve opening. Close the cylinder valve.",
+        "Locate the Regulator (included) and close its valve until it is loose, then thread Regulator onto cylinder and wrench-tighten connection.",
+        "When using C100 shielding gas, connect the enclosed CGA 580/320 adapter to the inlet connection of the Regulator and wrench-tighten. Thread the adapter onto the gas cylinder and wrench-tighten.",
+        "Attach the Gas Hose (included) to the Regulator's outlet and the Welder's gas inlet. Wrench-tighten both connections.",
+        "Open gas cylinder valve all the way before welding.",
+        "Set Flow Gauge to SCFH value indicated on Settings Chart."
+      ]
+    },
+    "steps": [
+      "Turn the Power Switch OFF and unplug the Welder before proceeding.",
+      "Open the Door by pulling up on the Door Latch.",
+      "Install Wire Spool (1-2 lb: over Spool Spindle against Brake Pad with Spacer and Wingnut; 10-12 lb: use Spool Adapter). Spool must unwind clockwise.",
+      "Set Feed Roller to correct type (solid core V-groove) and wire size. Flip or replace as needed.",
+      "Insert Gun Cable Connector through hole on front and into Wire Feed socket. Ensure fully inserted, tighten Knob.",
+      "Connect Wire Feed Control Cable to Wire Feed Control Socket inside machine.",
+      "Set polarity: Ground Clamp Cable to Negative Socket, Wire Feed Power Cable to Positive Socket (DCEP).",
+      "Connect shielding gas system (see gas setup steps).",
+      "Cut off bent/crimped wire end. Guide at least 12 inches into Wire Inlet Liner and Feed Guide.",
+      "Ensure wire rests in Feed Roller groove. Push Idler Arm down and swing Feed Tensioner to latch. Set tension 3-5 for solid wire.",
+      "Remove Nozzle and Contact Tip from MIG Gun. Lay Gun cable straight.",
+      "Plug Power Cord (120V or 240V) into Power Input Socket.",
+      "Turn Power Switch ON. Point Gun away, press and hold Cold Wire Feed Switch until wire feeds through 2 inches.",
+      "Check wire drive tension by pressing Trigger against a piece of wood from 2-3 inches away.",
+      "Turn OFF, unplug. Close Door securely.",
+      "Install correct Contact Tip over wire, thread clockwise into MIG Gun.",
+      "Replace Nozzle and cut wire off at 1/2 inch from tip (1/2 inch stickout)."
+    ],
+    "source": { "docId": "owners_manual", "pages": [10, 11, 12, 13, 14, 15, 16, 17], "section": "MIG / Flux-Cored Wire Welding" }
+  },
+  {
+    "process": "Flux-Cored",
+    "wireType": "flux_cored",
+    "cableSetup": {
+      "polarity": "DCEN",
+      "groundClamp": "Positive (+) Socket",
+      "wireFeedPowerCable": "Negative (-) Socket",
+      "instruction": "Plug Ground Clamp Cable into Positive Socket. Plug Wire Feed Power Cable into Negative Socket. Twist cables clockwise all the way to lock in place."
+    },
+    "gasSetup": {
+      "required": false,
+      "gasType": null,
+      "scfhRange": null,
+      "steps": []
+    },
+    "steps": [
+      "Turn the Power Switch OFF and unplug the Welder before proceeding.",
+      "Open the Door by pulling up on the Door Latch.",
+      "Install Wire Spool (1-2 lb or 10-12 lb). Spool must unwind clockwise.",
+      "Set Feed Roller to correct type (flux-cored knurled groove) and wire size.",
+      "Insert Gun Cable Connector through hole on front and into Wire Feed socket. Ensure fully inserted, tighten Knob.",
+      "Connect Wire Feed Control Cable to Wire Feed Control Socket inside machine.",
+      "Set polarity: Ground Clamp Cable to Positive Socket, Wire Feed Power Cable to Negative Socket (DCEN).",
+      "Cut off bent/crimped wire end. Guide at least 12 inches into Wire Inlet Liner and Feed Guide.",
+      "Ensure wire rests in Feed Roller groove. Push Idler Arm down and swing Feed Tensioner to latch. Set tension 2-3 for flux-cored wire.",
+      "Remove Nozzle and Contact Tip from MIG Gun. Lay Gun cable straight.",
+      "Plug Power Cord (120V or 240V) into Power Input Socket.",
+      "Turn Power Switch ON. Point Gun away, press and hold Cold Wire Feed Switch until wire feeds through 2 inches.",
+      "Check wire drive tension by pressing Trigger against a piece of wood from 2-3 inches away.",
+      "Turn OFF, unplug. Close Door securely.",
+      "Install correct Contact Tip over wire, thread clockwise into MIG Gun.",
+      "Replace Nozzle and cut wire off at 1/2 inch from tip (1/2 inch stickout)."
+    ],
+    "source": { "docId": "owners_manual", "pages": [10, 11, 12, 13, 15, 16, 17], "section": "MIG / Flux-Cored Wire Welding" }
+  },
+  {
+    "process": "TIG",
+    "wireType": null,
+    "cableSetup": {
+      "polarity": "DCEN",
+      "groundClamp": "Positive (+) Socket",
+      "tigTorchCable": "Negative (-) Socket",
+      "instruction": "Plug Ground Clamp Cable into Positive Socket. Plug TIG Torch Cable into Negative Socket. Twist clockwise all the way to lock in place."
+    },
+    "gasSetup": {
+      "required": true,
+      "gasType": "100% Argon",
+      "scfhRange": "10-25",
+      "steps": [
+        "With assistance, place a 100% Argon cylinder onto a cabinet or cart near the Welder and secure with two straps to prevent tipping.",
+        "Remove the cylinder's cap. Stand to the side of the valve opening, then open the valve briefly to blow dust and dirt. Close the cylinder valve.",
+        "Locate the Regulator (included) and close its valve until it is loose, then thread Regulator onto cylinder and wrench-tighten connection.",
+        "Connect Shielding Gas Hose on TIG Torch Cable Connector to the Regulator's Outlet and wrench-tighten connection.",
+        "Open gas cylinder valve all the way before welding.",
+        "Set Flow Gauge to SCFH value indicated on Settings Chart (10-25 SCFH)."
+      ]
+    },
+    "steps": [
+      "Turn the Power Switch OFF and unplug the Welder before setup.",
+      "Plug Ground Clamp Cable into Positive Socket. Twist clockwise to lock.",
+      "Plug TIG Torch Cable (TIG Torch sold separately) into Negative Socket. Twist clockwise to lock.",
+      "Insert the Foot Pedal Cable (Foot Pedal sold separately) through hole on Welder front and connect to Foot Pedal Socket inside machine. Secure by turning collar clockwise until tight.",
+      "Connect shielding gas system (see gas setup steps).",
+      "Assemble TIG Torch: match Collet and Collet Body sizes to Tungsten Electrode size, thread Collet Body into front of Torch, thread Ceramic Nozzle onto Collet Body, insert Collet into back of Torch, insert Tungsten Electrode, lock with Back Cap. Electrode should protrude 1/8 to 1/4 inch beyond Ceramic Nozzle.",
+      "Sharpen Tungsten Electrode to a blunt point. Conical portion should be 2.5x the Electrode diameter. Grinding direction must be parallel to length of Electrode.",
+      "Plug Power Cord (120V or 240V) into Power Input Socket.",
+      "Turn Power Switch ON.",
+      "Press Home Button, select TIG process with Main Control Knob.",
+      "Set polarity/gas settings, rod diameter, material thickness, and output amperage per LCD screens.",
+      "Turn Right Knob to ON to energize TIG Torch.",
+      "Open valve on TIG Torch to start gas flow.",
+      "Push Foot Pedal and touch Electrode to workpiece and lift to initiate arc."
+    ],
+    "source": { "docId": "owners_manual", "pages": [24, 25, 26, 30, 31], "section": "TIG / Stick Welding - TIG Setup" }
+  },
+  {
+    "process": "Stick",
+    "wireType": null,
+    "cableSetup": {
+      "polarity": "DCEP",
+      "groundClamp": "Negative (-) Socket",
+      "electrodeHolderCable": "Positive (+) Socket",
+      "instruction": "Plug Ground Clamp Cable into Negative Socket. Plug Electrode Holder Cable into Positive Socket. Twist clockwise all the way to lock in place."
+    },
+    "gasSetup": {
+      "required": false,
+      "gasType": null,
+      "scfhRange": null,
+      "steps": []
+    },
+    "steps": [
+      "Turn the Power Switch OFF and unplug the Welder before setup.",
+      "Plug Ground Clamp Cable into Negative Socket. Twist clockwise to lock.",
+      "Plug Electrode Holder Cable into Positive Socket. Twist clockwise to lock.",
+      "Plug Power Cord (120V or 240V) into Power Input Socket.",
+      "Set Electrode Holder down on nonconductive, nonflammable surface.",
+      "Turn the Power Switch ON.",
+      "Press Home Button, select Stick process with Main Control Knob.",
+      "Set polarity, electrode type, electrode diameter, material thickness, and output amperage per LCD screens.",
+      "Turn Right Knob to ON to energize Electrode Holder.",
+      "Place the bare metal end of the Stick Electrode inside the jaws of the Electrode Holder.",
+      "Stroke the workpiece lightly to ignite the arc (tap, stroke, or strike like a match).",
+      "After arc ignites: lift Electrode off workpiece the same distance as the diameter of the bare metal end, tilt Electrode back 10-20 degrees, drag Electrode to back end of weld puddle."
+    ],
+    "source": { "docId": "owners_manual", "pages": [27, 32, 33], "section": "TIG / Stick Welding - Stick Setup" }
+  }
+]

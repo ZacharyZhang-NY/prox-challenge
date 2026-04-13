@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Colors */
+  --color-background: #e4e3dc;
+  --color-surface: #e4e3dc;
+  --color-accent-primary: #fa6a25;
+  --color-accent-secondary: #6b9f74;
+  --color-ink: #141414;
+  --color-ink-light: rgba(20, 20, 20, 0.6);
+  --color-danger: #8e3e1c;
+
+  /* Legacy color names for compat */
+  --color-bg-gray: #e4e3dc;
+  --color-bg-green: #6b9f74;
+  --color-bg-orange: #fa6a25;
+
+  /* Fonts — local via fontsource */
+  --font-display: "Oswald Variable", "Oswald", sans-serif;
+  --font-sans: "Inter Variable", "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --font-body: "Inter Variable", "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Prose overrides for markdown rendering */
+@layer base {
+  .prose {
+    --tw-prose-body: #141414;
+    --tw-prose-headings: #141414;
+    --tw-prose-bold: #141414;
+    --tw-prose-code: #141414;
+    --tw-prose-links: #fa6a25;
+    font-family: var(--font-sans);
+  }
+  .prose p { margin-top: 0.5em; margin-bottom: 0.5em; }
+  .prose ul, .prose ol { margin-top: 0.25em; margin-bottom: 0.25em; }
+  .prose li { margin-top: 0.1em; margin-bottom: 0.1em; }
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-top: 0.75em;
+    margin-bottom: 0.25em;
+  }
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(20, 20, 20, 0.06);
+    padding: 0.15em 0.35em;
+    border-radius: 2px;
+  }
+  .prose code::before, .prose code::after { content: none; }
+  .prose strong { font-weight: 600; }
+}
+
+/* Design system utility classes */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-sans);
+  }
+  .text-hero {
+    font-size: clamp(3.5rem, 11vw, 14rem);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
+  .text-h1 {
+    font-size: clamp(4rem, 8vw, 10rem);
+    line-height: 0.85;
+  }
+  .text-h2 {
+    font-size: clamp(2.5rem, 6vw, 8rem);
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+  }
+  .text-h3 {
+    font-size: clamp(3rem, 5vw, 6rem);
+    line-height: 0.85;
+  }
+  .text-label {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+  .tracking-label {
+    letter-spacing: 0.15em;
+  }
+  .tracking-heading {
+    letter-spacing: 0.02em;
+  }
+  .tracking-nav {
+    letter-spacing: 0.05em;
+  }
+  .border-structural {
+    border-width: 1.5px;
+  }
+}

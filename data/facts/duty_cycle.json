@@ -1,0 +1,74 @@
+[
+  {
+    "process": "MIG",
+    "inputVoltage": 240,
+    "entries": [
+      { "dutyCyclePercent": 25, "amps": 200, "outputVoltage": 24.0, "weldMinutes": 2.5, "coolMinutes": 7.5 },
+      { "dutyCyclePercent": 60, "amps": 130, "outputVoltage": 20.5, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 115, "outputVoltage": 19.75, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 115,
+    "currentRange": "30-220A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 19, 29], "section": "Specifications / Spec Plate / Duty Cycle" }
+  },
+  {
+    "process": "MIG",
+    "inputVoltage": 120,
+    "entries": [
+      { "dutyCyclePercent": 40, "amps": 100, "outputVoltage": 19.0, "weldMinutes": 4, "coolMinutes": 6 },
+      { "dutyCyclePercent": 60, "amps": 85, "outputVoltage": 18.25, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 75, "outputVoltage": 17.75, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 75,
+    "currentRange": "30-140A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 19], "section": "Specifications / Spec Plate / Duty Cycle" }
+  },
+  {
+    "process": "TIG",
+    "inputVoltage": 240,
+    "entries": [
+      { "dutyCyclePercent": 30, "amps": 175, "outputVoltage": 17.0, "weldMinutes": 3, "coolMinutes": 7 },
+      { "dutyCyclePercent": 60, "amps": 125, "outputVoltage": 15.0, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 105, "outputVoltage": 14.2, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 105,
+    "currentRange": "10-175A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 29], "section": "Specifications / Spec Plate / Duty Cycle" }
+  },
+  {
+    "process": "TIG",
+    "inputVoltage": 120,
+    "entries": [
+      { "dutyCyclePercent": 40, "amps": 125, "outputVoltage": 15.0, "weldMinutes": 4, "coolMinutes": 6 },
+      { "dutyCyclePercent": 60, "amps": 105, "outputVoltage": 14.2, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 90, "outputVoltage": 13.6, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 90,
+    "currentRange": "10-125A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 29], "section": "Specifications / Spec Plate / Duty Cycle" }
+  },
+  {
+    "process": "Stick",
+    "inputVoltage": 240,
+    "entries": [
+      { "dutyCyclePercent": 25, "amps": 175, "outputVoltage": 27.0, "weldMinutes": 2.5, "coolMinutes": 7.5 },
+      { "dutyCyclePercent": 60, "amps": 115, "outputVoltage": 24.6, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 100, "outputVoltage": 24.0, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 100,
+    "currentRange": "10-175A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 29], "section": "Specifications / Spec Plate / Duty Cycle" }
+  },
+  {
+    "process": "Stick",
+    "inputVoltage": 120,
+    "entries": [
+      { "dutyCyclePercent": 40, "amps": 80, "outputVoltage": 23.2, "weldMinutes": 4, "coolMinutes": 6 },
+      { "dutyCyclePercent": 60, "amps": 70, "outputVoltage": 22.8, "weldMinutes": 6, "coolMinutes": 4 },
+      { "dutyCyclePercent": 100, "amps": 60, "outputVoltage": 22.4, "weldMinutes": 10, "coolMinutes": 0 }
+    ],
+    "continuousAmps": 60,
+    "currentRange": "10-80A",
+    "source": { "docId": "owners_manual", "pages": [7, 14, 29], "section": "Specifications / Spec Plate / Duty Cycle" }
+  }
+]
