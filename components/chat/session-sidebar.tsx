@@ -40,7 +40,7 @@ export function SessionSidebar({
       </div>
 
       {/* Session list */}
-      <div className="flex-1 overflow-y-auto py-1">
+      <div className="flex-1 overflow-y-auto py-1 scrollbar-hide">
         {sessions.length === 0 && (
           <div className="px-3 py-6 text-center">
             <span className="font-mono text-label tracking-label text-ink-light uppercase">

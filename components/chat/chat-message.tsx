@@ -1,6 +1,7 @@
 "use client";
 
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import type { ChatResponse } from "@/lib/schemas/response";
 import { ArtifactSwitch } from "@/components/artifacts/artifact-switch";
 import { CitationBadge } from "@/components/source-viewer/citation-badge";
@@ -10,13 +11,21 @@ interface ChatMessageProps {
   content: string;
   response?: ChatResponse;
   statusText?: string;
+  imageDataUrl?: string;
 }
 
-export function ChatMessage({ role, content, response, statusText }: ChatMessageProps) {
+export function ChatMessage({ role, content, response, statusText, imageDataUrl }: ChatMessageProps) {
   if (role === "user") {
     return (
       <div className="flex justify-end">
         <div className="max-w-[80%] bg-ink text-background px-4 py-3 rounded-sm">
+          {imageDataUrl && (
+            <img
+              src={imageDataUrl}
+              alt="Attached"
+              className="max-h-48 rounded-sm mb-2 border border-background/20"
+            />
+          )}
           <p className="font-body text-sm leading-relaxed">{content}</p>
         </div>
       </div>
@@ -42,7 +51,7 @@ export function ChatMessage({ role, content, response, statusText }: ChatMessage
             </span>
           </div>
         ) : (
-          <Markdown>{displayText}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{displayText}</Markdown>
         )}
       </div>
 

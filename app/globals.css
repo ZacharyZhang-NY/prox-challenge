@@ -62,6 +62,10 @@
   }
   .prose code::before, .prose code::after { content: none; }
   .prose strong { font-weight: 600; }
+  .prose table { width: 100%; border-collapse: collapse; margin-top: 0.5em; margin-bottom: 0.5em; font-size: 0.85em; }
+  .prose th { text-align: left; font-weight: 600; padding: 0.4em 0.75em; border-bottom: 1.5px solid rgba(20, 20, 20, 0.2); font-family: var(--font-mono); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(20, 20, 20, 0.6); }
+  .prose td { padding: 0.35em 0.75em; border-bottom: 1px solid rgba(20, 20, 20, 0.08); }
+  .prose tr:last-child td { border-bottom: none; }
 }
 
 /* Design system utility classes */
@@ -105,5 +109,12 @@
   }
   .border-structural {
     border-width: 1.5px;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -6,6 +6,7 @@ Built with Next.js 15, React 19, the Anthropic SDK, and a local knowledge base. 
 
 ![Chat with polarity diagram](screenshot/chat1.png)
 ![Manual image reference](screenshot/chat2.png)
+![Arc Sound Analysis](screenshot/analysis.png)
 
 ## Architecture
 
@@ -50,6 +51,20 @@ This three-layer approach means the agent can answer "what polarity for MIG?" wi
 **Typed artifacts over raw markdown.** Instead of letting the model generate arbitrary markdown/HTML, responses include typed artifact objects (polarity diagrams, duty cycle widgets, troubleshooting flows, settings cards, manual images). The frontend renders these as purpose-built interactive components. This guarantees visual consistency and prevents the model from producing broken layouts.
 
 **Schema validation everywhere.** Every API boundary uses Zod: request validation, response parsing, artifact type discrimination. If the model produces malformed JSON, the fallback parser extracts the answer field via regex rather than showing raw JSON to the user.
+
+## Arc Sound Analysis
+
+A real-time welding arc sound diagnostic tool built with the Web Audio API. The user clicks "Arc Sound" in the toolbar to open a live FFT spectrogram, then starts continuous analysis.
+
+**How it works:**
+
+1. The browser captures microphone audio via `getUserMedia` and routes it through an `AnalyserNode` (2048-point FFT, 0–8 kHz range).
+2. A high-DPI canvas renders a live frequency bar visualization at 60 fps, with ink-to-orange color mapping matching the design system.
+3. Every 500 ms, the monitor extracts audio features: peak frequency, spectral centroid, RMS level (dB), and band energy ratios (low 0–500 Hz, mid 500–2 kHz, high 2–8 kHz).
+4. When the user starts analysis, features are buffered and flushed to Claude every 5 seconds with reference ranges for real welding arcs (RMS -25 to -5 dB, broad spectral energy, high-band >30%).
+5. Claude compares the readings against known welding signatures. If the audio doesn't match welding characteristics (e.g., RMS below -35 dB), it reports that no active arc is detected rather than producing a false diagnosis.
+
+This enables hands-free acoustic diagnosis — the welder runs their arc and gets real-time feedback on arc stability, spatter risk, shielding gas coverage, and wire feed consistency without stopping work to type.
 
 ## Getting Started
 
@@ -118,6 +133,8 @@ prox/
 │   │   ├── session-sidebar.tsx      # Session list
 │   │   ├── prompt-suggestions.tsx   # Starter prompts
 │   │   └── upload-input.tsx         # Image upload
+│   ├── audio/
+│   │   └── arc-sound-monitor.tsx    # Real-time FFT + feature extraction
 │   ├── artifacts/
 │   │   ├── artifact-switch.tsx      # Routes artifact type → component
 │   │   ├── polarity-diagram-card.tsx
@@ -153,6 +170,7 @@ prox/
 ├── docs/
 │   └── architecture.html            # Blueprint-style system diagram
 └── screenshot/
+    ├── analysis.png
     ├── chat1.png
     └── chat2.png
 ```
@@ -172,8 +190,9 @@ prox/
 | Layer | Technology |
 |-------|-----------|
 | Framework | Next.js 15 |
-| UI | React 19, Tailwind CSS 4, react-markdown |
+| UI | React 19, Tailwind CSS 4, react-markdown, remark-gfm |
 | AI | Anthropic SDK, Claude Sonnet |
+| Audio | Web Audio API (AnalyserNode, FFT), getUserMedia |
 | Search | MiniSearch (lexical full-text) |
 | Database | sql.js (WASM SQLite, zero-config) |
 | Validation | Zod |
