@@ -74,6 +74,9 @@ export function lookupFacts(
     case "specs":
       items = store.specs as unknown as Record<string, unknown>[];
       break;
+    case "weld_settings":
+      items = store.weldSettings as unknown as Record<string, unknown>[];
+      break;
     default:
       return [];
   }

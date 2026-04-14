@@ -16,6 +16,7 @@ export interface KnowledgeStore {
   controls: ControlFact[];
   processSetup: ProcessSetupFact[];
   specs: ProcessSpec[];
+  weldSettings: Record<string, unknown>[];
   visualAssets: VisualAsset[];
   chunks: ManualChunk[];
 }
@@ -35,4 +36,5 @@ export type FactCollection =
   | "controls"
   | "troubleshooting"
   | "specs"
-  | "process_setup";
+  | "process_setup"
+  | "weld_settings";

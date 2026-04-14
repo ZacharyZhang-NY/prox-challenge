@@ -6,6 +6,7 @@ import { DutyCycleCard } from "./duty-cycle-card";
 import { TroubleshootingFlowCard } from "./troubleshooting-flow-card";
 import { ManualImageCard } from "./manual-image-card";
 import { SettingsCard } from "./settings-card";
+import { WeldConfiguratorCard } from "./weld-configurator-card";
 
 interface ArtifactSwitchProps {
   artifact: Artifact;
@@ -23,6 +24,8 @@ export function ArtifactSwitch({ artifact }: ArtifactSwitchProps) {
       return <ManualImageCard artifact={artifact} />;
     case "settings_card":
       return <SettingsCard artifact={artifact} />;
+    case "weld_configurator":
+      return <WeldConfiguratorCard artifact={artifact} />;
     default:
       return null;
   }

@@ -38,6 +38,7 @@ export function getKnowledgeStore(): KnowledgeStore {
     []
   );
   const specs = loadJSON<Record<string, unknown>[]>("facts/specs.json", []);
+  const weldSettings = loadJSON<Record<string, unknown>[]>("facts/weld_settings.json", []);
   const visualAssets = loadJSON<Record<string, unknown>[]>(
     "visual_assets.json",
     []
@@ -61,6 +62,7 @@ export function getKnowledgeStore(): KnowledgeStore {
     controls,
     processSetup,
     specs,
+    weldSettings,
     visualAssets,
     chunks,
   } as unknown as KnowledgeStore;

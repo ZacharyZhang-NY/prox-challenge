@@ -7,6 +7,7 @@ import { PromptSuggestions } from "./prompt-suggestions";
 import { UploadInput } from "./upload-input";
 import { SessionSidebar } from "./session-sidebar";
 import { ArcSoundMonitor, type AudioFeatures } from "@/components/audio/arc-sound-monitor";
+import { WeldInspector, type WeldInspectorHandle } from "@/components/camera/weld-inspector";
 
 interface Message {
   id: string;
@@ -40,6 +41,9 @@ export function ChatShell() {
   const [arcStream, setArcStream] = useState<MediaStream | null>(null);
   const [arcAnalyzing, setArcAnalyzing] = useState(false);
   const arcFeaturesRef = useRef<AudioFeatures[]>([]);
+  const [inspectorMode, setInspectorMode] = useState(false);
+  const [inspectorStream, setInspectorStream] = useState<MediaStream | null>(null);
+  const inspectorRef = useRef<WeldInspectorHandle>(null);
 
   // Auto-open sidebar on desktop, keep closed on mobile
   useEffect(() => {
@@ -131,8 +135,10 @@ export function ChatShell() {
   );
 
   const sendMessage = useCallback(
-    async (text: string) => {
+    async (text: string, overrideImage?: { base64: string; mediaType: string }) => {
       if (!text.trim() || isLoading) return;
+
+      const effectiveImage = overrideImage ?? imageData;
 
       // Auto-create session if none active
       let currentId = activeId;
@@ -149,14 +155,15 @@ export function ChatShell() {
         id: `user_${Date.now()}`,
         role: "user",
         content: text,
-        imageDataUrl: imageData
-          ? `data:${imageData.mediaType};base64,${imageData.base64}`
+        imageDataUrl: effectiveImage
+          ? `data:${effectiveImage.mediaType};base64,${effectiveImage.base64}`
           : undefined,
       };
 
       const updated = [...messages, userMessage];
       setMessages(updated);
       setInput("");
+      if (textareaRef.current) textareaRef.current.style.height = "auto";
       setIsLoading(true);
       scrollToBottom();
 
@@ -180,9 +187,9 @@ export function ChatShell() {
           message: text,
           conversationHistory,
         };
-        if (imageData) {
-          body.image = imageData.base64;
-          body.imageMediaType = imageData.mediaType;
+        if (effectiveImage) {
+          body.image = effectiveImage.base64;
+          body.imageMediaType = effectiveImage.mediaType;
         }
 
         const res = await fetch("/api/chat", {
@@ -259,7 +266,7 @@ export function ChatShell() {
           );
         }
 
-        setImageData(null);
+        if (!overrideImage) setImageData(null);
 
         // Persist
         const finalMessages = finalResponse
@@ -351,6 +358,12 @@ export function ChatShell() {
       arcFeaturesRef.current = [];
       return;
     }
+    // Close inspector mode if active
+    if (inspectorMode) {
+      inspectorStream?.getTracks().forEach((t) => t.stop());
+      setInspectorStream(null);
+      setInspectorMode(false);
+    }
     if (!navigator.mediaDevices?.getUserMedia) {
       alert("Microphone access requires HTTPS or localhost.");
       return;
@@ -370,7 +383,7 @@ export function ChatShell() {
         "3. Try a different browser (Edge/Firefox)"
       );
     }
-  }, [arcMode, arcStream]);
+  }, [arcMode, arcStream, inspectorMode, inspectorStream]);
 
   const arcIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sendMessageRef = useRef(sendMessage);
@@ -444,6 +457,57 @@ export function ChatShell() {
     };
   }, []);
 
+  const toggleInspectorMode = useCallback(async () => {
+    if (inspectorMode) {
+      inspectorStream?.getTracks().forEach((t) => t.stop());
+      setInspectorStream(null);
+      setInspectorMode(false);
+      return;
+    }
+    // Close arc mode if active
+    if (arcMode) {
+      if (arcAnalyzing) toggleArcAnalysis();
+      arcStream?.getTracks().forEach((t) => t.stop());
+      setArcStream(null);
+      setArcMode(false);
+      setArcAnalyzing(false);
+      arcFeaturesRef.current = [];
+    }
+    if (!navigator.mediaDevices?.getUserMedia) {
+      alert("Camera access requires HTTPS or localhost.");
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment" },
+      });
+      setInspectorStream(stream);
+      setInspectorMode(true);
+    } catch (err) {
+      const e = err instanceof DOMException ? err : new Error(String(err));
+      console.error("Camera access failed:", e.name, e.message);
+      alert(
+        `Camera error: ${e.name}\n${e.message}\n\n` +
+        "Check browser camera permissions and try again."
+      );
+    }
+  }, [inspectorMode, inspectorStream, arcMode, arcAnalyzing, arcStream, toggleArcAnalysis]);
+
+  const handleInspectorCapture = useCallback(() => {
+    const base64 = inspectorRef.current?.capture();
+    if (!base64) return;
+    sendMessage(
+      "[Weld Bead Inspection] Analyze this weld bead photograph. Assess:\n" +
+      "1. Bead profile — width consistency, height uniformity, straightness\n" +
+      "2. Surface quality — porosity, spatter, undercut, overlap, cracks\n" +
+      "3. Heat indicators — discoloration, heat-affected zone\n" +
+      "4. Penetration indicators — bead shape, tie-in at toes\n\n" +
+      "Rate overall quality and give specific improvement recommendations. " +
+      "Use the OmniPro 220 knowledge base for reference parameters when applicable.",
+      { base64, mediaType: "image/jpeg" }
+    );
+  }, [sendMessage]);
+
   return (
     <div className="flex h-full">
       {/* Sidebar — overlay on mobile, inline on desktop */}
@@ -496,10 +560,19 @@ export function ChatShell() {
           </div>
         )}
 
+        {/* Weld Inspector panel */}
+        {inspectorMode && (
+          <div className="px-4 pt-4 shrink-0">
+            <div className="max-w-3xl mx-auto">
+              <WeldInspector ref={inspectorRef} stream={inspectorStream} />
+            </div>
+          </div>
+        )}
+
         {/* Messages area */}
-        <div className="flex-1 overflow-y-auto px-4 py-6">
+        <div className="flex-1 overflow-y-auto px-4 py-6 scrollbar-hide">
           <div className="max-w-3xl mx-auto">
-            {messages.length === 0 && !arcMode ? (
+            {messages.length === 0 && !arcMode && !inspectorMode ? (
               <PromptSuggestions onSelect={(prompt) => sendMessage(prompt)} />
             ) : (
               <div className="flex flex-col gap-6">
@@ -543,11 +616,51 @@ export function ChatShell() {
                 </svg>
                 Arc Sound
               </button>
+              <button
+                type="button"
+                onClick={toggleInspectorMode}
+                className={`h-10 flex items-center gap-1.5 px-3 border rounded-sm font-mono uppercase transition-colors ${
+                  inspectorMode
+                    ? "bg-accent-primary/15 border-accent-primary/30 text-accent-primary"
+                    : "border-ink/10 text-ink-light hover:border-ink/30 hover:text-ink"
+                }`}
+                style={{ fontSize: "0.6rem", letterSpacing: "0.1em" }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="12" y1="2" x2="12" y2="6" />
+                  <line x1="12" y1="18" x2="12" y2="22" />
+                  <line x1="2" y1="12" x2="6" y2="12" />
+                  <line x1="18" y1="12" x2="22" y2="12" />
+                </svg>
+                Weld Inspector
+              </button>
             </div>
 
             {/* Input row */}
             <div className="py-2.5">
-              {arcMode ? (
+              {inspectorMode ? (
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={handleInspectorCapture}
+                    disabled={isLoading}
+                    className={`flex-1 h-10 font-display text-sm uppercase tracking-heading rounded-sm transition-all duration-200 ${
+                      isLoading
+                        ? "bg-accent-primary text-background animate-pulse"
+                        : "bg-ink text-background hover:bg-accent-primary hover:text-ink"
+                    } disabled:cursor-not-allowed`}
+                  >
+                    {isLoading ? "Analyzing..." : "Capture & Analyze"}
+                  </button>
+                  <button
+                    onClick={toggleInspectorMode}
+                    className="h-10 px-4 border border-ink/20 text-ink font-display text-sm uppercase tracking-heading rounded-sm hover:bg-ink/5 transition-colors shrink-0"
+                  >
+                    Exit
+                  </button>
+                </div>
+              ) : arcMode ? (
                 <div className="flex items-center gap-3">
                   <button
                     onClick={toggleArcAnalysis}
@@ -573,7 +686,7 @@ export function ChatShell() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="flex items-center gap-3"
+                  className="flex items-end gap-3"
                 >
                   <UploadInput
                     onImageSelect={(base64, mediaType) => setImageData({ base64, mediaType })}
@@ -584,13 +697,18 @@ export function ChatShell() {
                     <textarea
                       ref={textareaRef}
                       value={input}
-                      onChange={(e) => setInput(e.target.value)}
+                      onChange={(e) => {
+                        setInput(e.target.value);
+                        const el = e.target;
+                        el.style.height = "auto";
+                        el.style.height = `${Math.min(el.scrollHeight, 6 * 16)}px`;
+                      }}
                       onKeyDown={handleKeyDown}
                       onPaste={handlePaste}
                       placeholder="Ask about the OmniPro 220..."
                       disabled={isLoading}
                       rows={1}
-                      className="block w-full h-10 resize-none overflow-hidden bg-background border border-ink/10 rounded-sm px-4 font-body text-sm text-ink placeholder:text-ink-light focus:outline-none focus:border-ink/30 transition-colors disabled:opacity-50 leading-10"
+                      className="block w-full min-h-[2.5rem] resize-none overflow-hidden bg-background border border-ink/10 rounded-sm px-4 py-2 font-body text-sm text-ink placeholder:text-ink-light focus:outline-none focus:border-ink/30 transition-colors disabled:opacity-50 leading-6"
                     />
                   </div>
                   <button

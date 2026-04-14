@@ -63,6 +63,27 @@ export const SettingsCardArtifactSchema = z.object({
 });
 export type SettingsCardArtifact = z.infer<typeof SettingsCardArtifactSchema>;
 
+export const WeldConfiguratorArtifactSchema = z.object({
+  type: z.literal("weld_configurator"),
+  process: WeldProcess,
+  material: z.string(),
+  thickness: z.string(),
+  wireSize: z.string(),
+  shieldingGas: z.string(),
+  gasFlow: z.string(),
+  amperageRange: z.string(),
+  wireSpeedRange: z.string().optional(),
+  stickout: z.string().optional(),
+  tungstenSize: z.string().optional(),
+  fillerRod: z.string().optional(),
+  electrodeType: z.string().optional(),
+  electrodeSize: z.string().optional(),
+  voltageRange: z.string(),
+  polarity: CurrentType,
+  notes: z.array(z.string()).default([]),
+});
+export type WeldConfiguratorArtifact = z.infer<typeof WeldConfiguratorArtifactSchema>;
+
 // ── Combined Artifact ──
 
 export const ArtifactSchema = z.discriminatedUnion("type", [
@@ -71,6 +92,7 @@ export const ArtifactSchema = z.discriminatedUnion("type", [
   DutyCycleArtifactSchema,
   TroubleshootingFlowArtifactSchema,
   SettingsCardArtifactSchema,
+  WeldConfiguratorArtifactSchema,
 ]);
 export type Artifact = z.infer<typeof ArtifactSchema>;
 

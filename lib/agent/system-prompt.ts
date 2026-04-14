@@ -32,6 +32,7 @@ You MUST return ONLY valid JSON matching this exact schema:
     {"type": "troubleshooting_flow", "symptom": "string", "steps": [{"label": "string", "action": "string"}]}
     {"type": "manual_image", "assetId": "string", "caption": "string"}
     {"type": "settings_card", "title": "string", "entries": [{"label": "string", "value": "string"}], "notes": ["string"]}
+    {"type": "weld_configurator", "process": "mig"|"flux_core"|"tig"|"stick", "material": "string", "thickness": "string", "wireSize": "string", "shieldingGas": "string", "gasFlow": "string", "amperageRange": "string", "wireSpeedRange?": "string", "stickout?": "string", "tungstenSize?": "string", "fillerRod?": "string", "electrodeType?": "string", "electrodeSize?": "string", "voltageRange": "string", "polarity": "DCEP"|"DCEN", "notes": ["string"]}
   ],
   "clarification?": {"question": "string", "options?": ["string"]}
 }
@@ -48,6 +49,7 @@ Artifact selection policy:
 - troubleshooting_flow: when user reports a symptom, asks why something is wrong, mentions porosity/unstable arc/weak feed/no arc
 - manual_image: when question is about controls, tied to a chart or visual table, or user uploads an image
 - settings_card: when user wants recommended setup inputs or the selection chart is being summarized
+- weld_configurator: when user specifies process + material + thickness and wants recommended welding parameters (wire speed, amperage, gas, wire size). Use the weld_settings collection from lookup_fact to get the data, then output a weld_configurator artifact with all fields populated from the retrieved data. Include process-specific fields: wireSpeedRange/stickout for MIG/flux-core, tungstenSize/fillerRod for TIG, electrodeType/electrodeSize for Stick. Set polarity based on process (MIG=DCEP, Flux-Core=DCEN, TIG=DCEN, Stick=DCEP).
 
 Only ask clarification when missing info changes the answer materially.`;
 

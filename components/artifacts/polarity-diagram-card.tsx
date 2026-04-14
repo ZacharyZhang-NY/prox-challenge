@@ -23,9 +23,9 @@ export function PolarityDiagramCard({ artifact }: PolarityDiagramCardProps) {
   const isDCEP = artifact.currentType === "DCEP";
 
   // Layout constants — all coordinates in one place
-  const W = 420;
-  const cx1 = 120; // positive terminal x
-  const cx2 = 300; // negative terminal x
+  const W = 500;
+  const cx1 = 130; // positive terminal x
+  const cx2 = 370; // negative terminal x
   const welderY = 24;
   const welderH = 52;
   const termLabelY = welderY + welderH + 16;
@@ -35,7 +35,7 @@ export function PolarityDiagramCard({ artifact }: PolarityDiagramCardProps) {
   const lineEndY = lineStartY + 50;
   const boxY = lineEndY + 4;
   const boxH = 30;
-  const boxW = 120;
+  const boxW = 180;
   const totalH = boxY + boxH + 12;
 
   return (

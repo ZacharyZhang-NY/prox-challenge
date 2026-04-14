@@ -9,6 +9,7 @@ export function executeLookupFact(input: LookupFactInput): string {
     troubleshooting: "troubleshooting",
     specs: "specs",
     process_setup: "process_setup",
+    weld_settings: "weld_settings",
   };
 
   const collection = collectionMap[input.collection];
@@ -64,7 +65,7 @@ export const TOOL_DEFINITIONS = [
   {
     name: "lookup_fact" as const,
     description:
-      "Look up structured facts from the knowledge base. Collections: polarity (cable setup by process), duty_cycle (rated cycles by voltage/amps), controls (front panel and interior controls), troubleshooting (problems, causes, solutions), specs (welder specifications), process_setup (setup procedures by process). Use filters to narrow results, e.g. {process: 'mig'} or {inputVoltage: 240}.",
+      "Look up structured facts from the knowledge base. Collections: polarity (cable setup by process), duty_cycle (rated cycles by voltage/amps), controls (front panel and interior controls), troubleshooting (problems, causes, solutions), specs (welder specifications), process_setup (setup procedures by process), weld_settings (recommended wire speed, amperage, gas, wire size by process + material + thickness). Use filters to narrow results, e.g. {process: 'mig', material: 'Mild Steel', thickness: '3/16\"'}.",
     input_schema: {
       type: "object" as const,
       properties: {
@@ -77,6 +78,7 @@ export const TOOL_DEFINITIONS = [
             "troubleshooting",
             "specs",
             "process_setup",
+            "weld_settings",
           ],
           description: "The fact collection to query",
         },

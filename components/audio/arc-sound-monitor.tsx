@@ -31,6 +31,9 @@ export function ArcSoundMonitor({ stream, onSnapshot }: ArcSoundMonitorProps) {
     if (!stream || !canvasRef.current) return;
 
     const audioCtx = new AudioContext();
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
     const source = audioCtx.createMediaStreamSource(stream);
     const analyser = audioCtx.createAnalyser();
     analyser.fftSize = 2048;
