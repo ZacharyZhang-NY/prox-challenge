@@ -2,7 +2,7 @@
 
 A multimodal AI knowledge agent for the Vulcan OmniPro 220 multiprocess welder. It answers technical questions by looking up structured facts, searching the manual full-text, and pulling up the actual manual page images. Every answer is grounded in the source documents.
 
-Built with Next.js 15, React 19, the Anthropic SDK, and a local knowledge base. No vector database, no external services beyond the Claude API.
+Built with Next.js 16, React 19, the Anthropic SDK, and a local knowledge base. No vector database, no external services beyond the Claude API.
 
 ![Chat with polarity diagram](screenshot/chat1.png)
 ![Manual image reference](screenshot/chat2.png)
@@ -223,7 +223,7 @@ prox/
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | Next.js 15 |
+| Framework | Next.js 16 |
 | UI | React 19, Tailwind CSS 4, react-markdown, remark-gfm |
 | AI | Anthropic SDK, Claude Sonnet |
 | Audio | Web Audio API (AnalyserNode, FFT), getUserMedia |
