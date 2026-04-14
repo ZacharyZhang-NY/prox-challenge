@@ -1,5 +1,7 @@
 # Prox
 
+<video src="Demo.mp4" controls width="100%"></video>
+
 A multimodal AI knowledge agent for the Vulcan OmniPro 220 multiprocess welder. It answers technical questions by looking up structured facts, searching the manual full-text, and pulling up the actual manual page images. Every answer is grounded in the source documents.
 
 Built with Next.js 16, React 19, the Anthropic SDK, and a local knowledge base. No vector database, no external services beyond the Claude API.
